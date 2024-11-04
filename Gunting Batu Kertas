@@ -1,0 +1,36 @@
+import random
+
+def main():
+    print("Selamat datang di permainan Batu, Kertas, Gunting!")
+    print("Peraturan: Batu mengalahkan Gunting, Gunting mengalahkan Kertas, dan Kertas mengalahkan Batu.\n")
+
+    pilihan = ["batu", "kertas", "gunting"]
+
+    while True:
+        # Pemain memilih
+        pemain_pilihan = input("Pilih (batu/kertas/gunting) atau 'keluar' untuk mengakhiri: ").lower()
+        if pemain_pilihan == "keluar":
+            print("Terima kasih telah bermain!")
+            break
+
+        # Validasi input
+        if pemain_pilihan not in pilihan:
+            print("Pilihan tidak valid, silakan coba lagi.")
+            continue
+
+        # Komputer memilih secara acak
+        komputer_pilihan = random.choice(pilihan)
+        print(f"Komputer memilih: {komputer_pilihan}")
+
+        # Menentukan pemenang
+        if pemain_pilihan == komputer_pilihan:
+            print("Hasil: Seri!\n")
+        elif (pemain_pilihan == "batu" and komputer_pilihan == "gunting") or \
+             (pemain_pilihan == "gunting" and komputer_pilihan == "kertas") or \
+             (pemain_pilihan == "kertas" and komputer_pilihan == "batu"):
+            print("Hasil: Anda menang!\n")
+        else:
+            print("Hasil: Anda kalah!\n")
+
+# Memulai permainan
+main()
