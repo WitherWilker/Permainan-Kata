@@ -1,0 +1,56 @@
+# Program Konversi Suhu
+
+def celsius_ke_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def celsius_ke_kelvin(celsius):
+    return celsius + 273.15
+
+def fahrenheit_ke_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+def fahrenheit_ke_kelvin(fahrenheit):
+    return (fahrenheit - 32) * 5/9 + 273.15
+
+def kelvin_ke_celsius(kelvin):
+    return kelvin - 273.15
+
+def kelvin_ke_fahrenheit(kelvin):
+    return (kelvin - 273.15) * 9/5 + 32
+
+def tampilkan_menu():
+    print("Pilih konversi suhu:")
+    print("1. Celsius ke Fahrenheit")
+    print("2. Celsius ke Kelvin")
+    print("3. Fahrenheit ke Celsius")
+    print("4. Fahrenheit ke Kelvin")
+    print("5. Kelvin ke Celsius")
+    print("6. Kelvin ke Fahrenheit")
+
+def main():
+    tampilkan_menu()
+    pilihan = input("Masukkan pilihan (1-6): ")
+
+    if pilihan == "1":
+        celsius = float(input("Masukkan suhu dalam Celsius: "))
+        print("Suhu dalam Fahrenheit:", celsius_ke_fahrenheit(celsius))
+    elif pilihan == "2":
+        celsius = float(input("Masukkan suhu dalam Celsius: "))
+        print("Suhu dalam Kelvin:", celsius_ke_kelvin(celsius))
+    elif pilihan == "3":
+        fahrenheit = float(input("Masukkan suhu dalam Fahrenheit: "))
+        print("Suhu dalam Celsius:", fahrenheit_ke_celsius(fahrenheit))
+    elif pilihan == "4":
+        fahrenheit = float(input("Masukkan suhu dalam Fahrenheit: "))
+        print("Suhu dalam Kelvin:", fahrenheit_ke_kelvin(fahrenheit))
+    elif pilihan == "5":
+        kelvin = float(input("Masukkan suhu dalam Kelvin: "))
+        print("Suhu dalam Celsius:", kelvin_ke_celsius(kelvin))
+    elif pilihan == "6":
+        kelvin = float(input("Masukkan suhu dalam Kelvin: "))
+        print("Suhu dalam Fahrenheit:", kelvin_ke_fahrenheit(kelvin))
+    else:
+        print("Pilihan tidak valid. Silakan coba lagi.")
+
+# Memulai program
+main()
