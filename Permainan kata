@@ -1,0 +1,60 @@
+# Permainan Petualangan Berbasis Teks Sederhana
+def mulai_permainan():
+    print("Selamat datang di permainan petualangan!")
+    print("Dalam permainan ini, Anda akan menjelajahi ruangan untuk menemukan harta karun.")
+    print("Selamat berpetualang!\n")
+
+    ruangan = "awal"  # Mulai dari ruangan awal
+    harta_ditemukan = False
+
+    while True:
+        if ruangan == "awal":
+            print("Anda berada di sebuah ruangan awal. Ada dua pintu: satu ke utara dan satu ke timur.")
+            pilihan = input("Ke mana Anda ingin pergi? (utara/timur/keluar): ").lower()
+
+            if pilihan == "utara":
+                ruangan = "ruangan_gelap"
+            elif pilihan == "timur":
+                ruangan = "ruangan_harta"
+            elif pilihan == "keluar":
+                print("Terima kasih telah bermain! Sampai jumpa!")
+                break
+            else:
+                print("Pilihan tidak dikenal. Silakan coba lagi.")
+
+        elif ruangan == "ruangan_gelap":
+            print("Anda berada di sebuah ruangan gelap dan mendengar suara yang menyeramkan.")
+            pilihan = input("Apakah Anda ingin kembali atau tetap berada di ruangan ini? (kembali/diam): ").lower()
+
+            if pilihan == "kembali":
+                ruangan = "awal"
+            elif pilihan == "diam":
+                print("Anda berdiri dalam kegelapan dan mulai merasa ketakutan. Anda memutuskan untuk kembali.")
+                ruangan = "awal"
+            else:
+                print("Pilihan tidak dikenal. Silakan coba lagi.")
+
+        elif ruangan == "ruangan_harta":
+            if not harta_ditemukan:
+                print("Selamat! Anda menemukan ruangan harta karun yang berkilauan.")
+                pilihan = input("Apakah Anda ingin mengambil harta karun? (ya/tidak): ").lower()
+
+                if pilihan == "ya":
+                    harta_ditemukan = True
+                    print("Anda mengambil harta karun! Sekarang Anda kaya raya!")
+                elif pilihan == "tidak":
+                    print("Anda meninggalkan harta karun dan kembali ke ruangan awal.")
+                else:
+                    print("Pilihan tidak dikenal. Silakan coba lagi.")
+            else:
+                print("Anda telah mengambil harta karun. Tidak ada yang tersisa di sini.")
+
+            ruangan = "awal"  # Kembali ke ruangan awal setelah selesai di ruangan_harta
+
+        else:
+            print("Anda tersesat! Mengembalikan Anda ke ruangan awal.")
+            ruangan = "awal"
+
+
+# Memulai permainan
+mulai_permainan()
