@@ -1,0 +1,64 @@
+# Program Buku Kontak Sederhana
+
+# Database kontak disimpan dalam dictionary
+buku_kontak = {}
+
+def tambah_kontak():
+    nama = input("Masukkan nama: ")
+    nomor = input("Masukkan nomor telepon: ")
+    buku_kontak[nama] = nomor
+    print(f"Kontak '{nama}' berhasil ditambahkan.\n")
+
+def lihat_kontak():
+    if buku_kontak:
+        print("Daftar Kontak:")
+        for nama, nomor in buku_kontak.items():
+            print(f"Nama: {nama}, Nomor: {nomor}")
+    else:
+        print("Buku kontak kosong.")
+    print()
+
+def cari_kontak():
+    nama = input("Masukkan nama kontak yang dicari: ")
+    if nama in buku_kontak:
+        print(f"Kontak ditemukan - Nama: {nama}, Nomor: {buku_kontak[nama]}\n")
+    else:
+        print("Kontak tidak ditemukan.\n")
+
+def hapus_kontak():
+    nama = input("Masukkan nama kontak yang ingin dihapus: ")
+    if nama in buku_kontak:
+        del buku_kontak[nama]
+        print(f"Kontak '{nama}' berhasil dihapus.\n")
+    else:
+        print("Kontak tidak ditemukan.\n")
+
+def tampilkan_menu():
+    print("=== Buku Kontak Sederhana ===")
+    print("1. Tambah Kontak")
+    print("2. Lihat Semua Kontak")
+    print("3. Cari Kontak")
+    print("4. Hapus Kontak")
+    print("5. Keluar")
+
+def main():
+    while True:
+        tampilkan_menu()
+        pilihan = input("Pilih opsi (1-5): ")
+        
+        if pilihan == "1":
+            tambah_kontak()
+        elif pilihan == "2":
+            lihat_kontak()
+        elif pilihan == "3":
+            cari_kontak()
+        elif pilihan == "4":
+            hapus_kontak()
+        elif pilihan == "5":
+            print("Terima kasih telah menggunakan Buku Kontak!")
+            break
+        else:
+            print("Pilihan tidak valid. Silakan coba lagi.\n")
+
+# Menjalankan program
+main()
