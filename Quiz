@@ -1,0 +1,55 @@
+# Aplikasi Quiz Dasar
+
+# Daftar pertanyaan quiz
+pertanyaan_quiz = [
+    {
+        "pertanyaan": "Siapa presiden pertama Indonesia?",
+        "pilihan": ["1. Soekarno", "2. Soeharto", "3. Habibie", "4. Gus Dur"],
+        "jawaban": "1"
+    },
+    {
+        "pertanyaan": "Ibu kota Indonesia adalah?",
+        "pilihan": ["1. Surabaya", "2. Jakarta", "3. Bandung", "4. Yogyakarta"],
+        "jawaban": "2"
+    },
+    {
+        "pertanyaan": "Berapa hasil dari 5 + 7?",
+        "pilihan": ["1. 10", "2. 11", "3. 12", "4. 13"],
+        "jawaban": "3"
+    },
+    {
+        "pertanyaan": "Planet terbesar di tata surya kita adalah?",
+        "pilihan": ["1. Bumi", "2. Mars", "3. Jupiter", "4. Saturnus"],
+        "jawaban": "3"
+    },
+    {
+        "pertanyaan": "Hewan tercepat di darat adalah?",
+        "pilihan": ["1. Singa", "2. Harimau", "3. Cheetah", "4. Rusa"],
+        "jawaban": "3"
+    }
+]
+
+def mulai_quiz():
+    skor = 0
+    print("Selamat datang di Quiz Dasar!\n")
+    
+    # Menampilkan pertanyaan
+    for index, item in enumerate(pertanyaan_quiz):
+        print(f"Pertanyaan {index + 1}: {item['pertanyaan']}")
+        for pilihan in item["pilihan"]:
+            print(pilihan)
+        jawaban = input("Masukkan jawaban Anda (1-4): ")
+        
+        # Mengecek jawaban
+        if jawaban == item["jawaban"]:
+            print("Benar!\n")
+            skor += 1
+        else:
+            print("Salah.\n")
+    
+    # Menampilkan skor akhir
+    print(f"Quiz selesai! Skor akhir Anda adalah {skor} dari {len(pertanyaan_quiz)}.")
+    print("Terima kasih telah bermain!")
+
+# Memulai aplikasi quiz
+mulai_quiz()
